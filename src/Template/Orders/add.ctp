@@ -1,6 +1,6 @@
 <h1>Add Order</h1>
 <?php
-echo $this->Form->create($customers);
+echo $this->Form->create($orders);
 echo $this->Form->input('FirstName');
 echo $this->Form->input('LastName');
 echo $this->Form->input('Address');

@@ -8,11 +8,11 @@ class OrdersController extends AppController
     {
         parent::initialize();
 
-        $this->loadComponent('Flash'); // Include the FlashComponent
+        $this->loadComponent('Flash'); 
     }
     public function index()
     {
-        $orders=$this->Orders->find('all');//between "Customer" is the table
+        $orders=$this->Orders->find('all');
         $this->set(compact('orders'));
     }
    public function add()
@@ -57,18 +57,19 @@ class OrdersController extends AppController
                         
                         $hi;
                         $i=1;
-                        foreach($topName as $topN)
+                      /*  foreach($topName as $topN)
                         {
                                 
                                 $ToppingsVar= "$topN,";
                                 $hi=$orders->Toppings=$ToppingsVar;
-                        }
+                        }*/
                        
                        
                          
                      $total=$total-0.5;//Getting total values
                    
                     $orders->Total=$total;
+                    echo $orders;
             //Saving
          if ($this->Orders->save($orders)) {
                 $this->Flash->success(__('Customers Has been Added'));//printing
