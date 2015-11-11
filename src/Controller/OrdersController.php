@@ -18,64 +18,49 @@ class OrdersController extends AppController
    public function add()
    {
         $orders = $this->Orders->newEntity();
-        if ($this->request->is('post')) {
+        if ($this->request->is('post')) 
+        {
             $orders = $this->Orders->patchEntity($orders, $this->request->data);
-            // Added this line
             $orders->user_id = $this->Auth->user('id');
-            $total=0;//Created variable
+            $total=0;
             if($orders->Pizza_Size=='small')
             {
-                $total+=5;
-                //echo $total;
+                $total=$total+5;
             }
             else if($orders->Pizza_Size=='medium')
             {
-                $total+=10;
+                $total=$total+10;
             }
               else if($orders->Pizza_Size=='large')
             {
-                $total+=15;
+                $total=$total+15;
             }
                elseif($orders->Pizza_Size=='xlarge')
             {
-                $total+=20;
+                $total=$total+20;
             }
             
-            if($orders->Crust_Type=='stuffed')//Adding Cost for Stuffed Pizza
+            if($orders->Crust_Type=='stuffed')
             {
-                $total+=2;
+                $total=$total+2;
             }
-            //Adding Toppings Value////////////////////
-            $count=sizeof($this->request->data['Toppings']);
-                        $j=0;
-                        for($i=0;$i<$count;$i++)
+            $valueCount=sizeof($this->request->data['Toppings']);
+                        $ping=0;
+                        for($i=0;$i<$valueCount;$i++)
                         {
-                            $j=$j+0.5;
-                            $total+=$j;   
+                            $ping+=0.5;
+                            $total=$total+$ping;   
                         }
                         $topName=$this->request->data['Toppings'];
-                        
-                        $hi;
                         $i=1;
-                      /*  foreach($topName as $topN)
-                        {
-                                
-                                $ToppingsVar= "$topN,";
-                                $hi=$orders->Toppings=$ToppingsVar;
-                        }*/
-                       
-                       
-                         
-                     $total=$total-0.5;//Getting total values
-                   
+                    $total=$total-0.5;
                     $orders->Total=$total;
-                    echo $orders;
-            //Saving
-         if ($this->Orders->save($orders)) {
-                $this->Flash->success(__('Customers Has been Added'));
-              return $this->redirect(['action' => 'index']);
-            } 
-            $this->Flash->error(__('Unable to add your article.'));
+                    if ($this->Orders->save($orders)) 
+                    {
+                        $this->Flash->success(__('Order Added'));
+                        return $this->redirect(['action' => 'index']);
+                    }    
+                    $this->Flash->error(__('Unable to add .'));
         }
         $this->set('orders', $orders);
    }
@@ -87,10 +72,10 @@ class OrdersController extends AppController
             $this->Orders->patchEntity($orders,$this->request->data);
             if($this->Orders->save($orders))
             {
-                $this->Flash->Success(('Data is Updated'));
+                $this->Flash->Success((' Updated'));
                 return $this->redirect(['action'=>'index']);
             }
-            $this->Flash->error(('Unable to Update'));
+            $this->Flash->error(('Nothing has been added'));
             
         }
         $this->set('orders',$orders);
@@ -101,8 +86,7 @@ class OrdersController extends AppController
         $orders=$this->Orders->get($id);
         if($this->Orders->delete($orders))
         {
-          //  $this->Flash->success(('Customer With id:{0} has been deleted', h($id)));
-           $this->Flash->success(__('Customer with id: {0} has been deleted.', h($id)));
+           $this->Flash->success(__('Order with id: {0} is deleted', h($id)));
             return $this->redirect(['action'=>'index']);
         }
     }
@@ -114,8 +98,8 @@ class OrdersController extends AppController
     }
 
    if (in_array($this->request->action, ['edit', 'delete'])) {
-        $customersId = (int)$this->request->params['pass'][0];
-        if ($this->Orders->isOwnedBy($customersId, $user['id'])) {
+        $ordersId = (int)$this->request->params['pass'][0];
+        if ($this->Orders->isOwnedBy($ordersId, $user['id'])) {
             return true;
         }
     }

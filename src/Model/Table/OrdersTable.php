@@ -31,13 +31,11 @@ class OrdersTable extends Table
             ->notEmpty('PhoneNo')
             ->requirePresence('PhoneNo');
         
-           
-        
         return $validator;
     }
-        public function isOwnedBy($customersId, $userId)
+        public function isOwnedBy($ordersId, $userId)
          {
-            return $this->exists(['id' => $customersId, 'user_id' => $userId]);
+            return $this->exists(['id' => $ordersId, 'user_id' => $userId]);
         }
 }
 ?>

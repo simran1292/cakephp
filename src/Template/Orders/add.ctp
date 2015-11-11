@@ -14,14 +14,10 @@ echo $this->Form->input('Crust_Type',['options'=>['handtossed'=>'HandTossed','pa
 <?php 
 
  echo $this->Form->input('Toppings', array('type' => 'select', 'multiple' => 'checkbox','options' => array(
-                'greenolives' => 'GreenOlives',
-                'blackolives' => 'BlackOlives',
-                'chicken' => 'Chicken',
-                'pineapple' => 'PineApple',
                 'pepperoni' => 'Pepperoni',
-                'orange' => 'Orange',
-                'feta' => 'Feta',
-                'bacon' => 'Bacon'
+                'garlic' => 'Garlic',
+                'bacon' => 'Bacon',
+                'ham' => 'Ham',
             )
          ));
 
