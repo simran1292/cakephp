@@ -72,7 +72,7 @@ class OrdersController extends AppController
                     echo $orders;
             //Saving
          if ($this->Orders->save($orders)) {
-                $this->Flash->success(__('Customers Has been Added'));//printing
+                $this->Flash->success(__('Customers Has been Added'));
               return $this->redirect(['action' => 'index']);
             } 
             $this->Flash->error(__('Unable to add your article.'));
@@ -113,10 +113,9 @@ class OrdersController extends AppController
         return true;
     }
 
-    // The owner of an article can edit and delete it
-    if (in_array($this->request->action, ['edit', 'delete'])) {
+   if (in_array($this->request->action, ['edit', 'delete'])) {
         $customersId = (int)$this->request->params['pass'][0];
-        if ($this->Customer->isOwnedBy($customersId, $user['id'])) {
+        if ($this->Orders->isOwnedBy($customersId, $user['id'])) {
             return true;
         }
     }
