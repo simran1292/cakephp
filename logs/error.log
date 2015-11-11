@@ -1153,3 +1153,107 @@ Stack Trace:
 #13 {main}
 
 
+2015-11-11 15:30:04 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Add could not be found.
+Exception Attributes: array (
+  'class' => 'Add',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /cakephp/add
+Stack Trace:
+#0 C:\xampp\htdocs\cakephp\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-11 15:32:30 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Login could not be found.
+Exception Attributes: array (
+  'class' => 'Login',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /cakephp/login
+Stack Trace:
+#0 C:\xampp\htdocs\cakephp\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-11 15:32:52 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Customer could not be found.
+Exception Attributes: array (
+  'class' => 'Customer',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /cakephp/customer
+Stack Trace:
+#0 C:\xampp\htdocs\cakephp\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-11 15:34:12 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Customer could not be found.
+Exception Attributes: array (
+  'class' => 'Customer',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /cakephp/customer
+Stack Trace:
+#0 C:\xampp\htdocs\cakephp\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-11 15:54:27 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Customer could not be found.
+Exception Attributes: array (
+  'class' => 'Customer',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /cakephp/customer
+Stack Trace:
+#0 C:\xampp\htdocs\cakephp\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-11 15:59:53 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Customer could not be found.
+Exception Attributes: array (
+  'class' => 'Customer',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /cakephp/customer
+Stack Trace:
+#0 C:\xampp\htdocs\cakephp\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-11 16:02:10 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Customer could not be found.
+Exception Attributes: array (
+  'class' => 'Customer',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /cakephp/customer
+Stack Trace:
+#0 C:\xampp\htdocs\cakephp\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-11 16:02:23 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Login could not be found.
+Exception Attributes: array (
+  'class' => 'Login',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /cakephp/login
+Stack Trace:
+#0 C:\xampp\htdocs\cakephp\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+

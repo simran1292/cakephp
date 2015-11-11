@@ -9,9 +9,9 @@ class OrdersTable extends Table
     {
         $this->addBehavior('Timestamp');
     }
-    public function validationDefault(Validator $validator)
+    public function validationDefault(Validator $checker)
     {
-        $validator
+        $checker
             ->notEmpty('FirstName')
             ->requirePresence('FirstName')
             ->notEmpty('LastName')
@@ -21,17 +21,14 @@ class OrdersTable extends Table
             
             ->notEmpty('Address')
             ->requirePresence('Address')
-            
             ->notEmpty('City')
             ->requirePresence('City')
-            
             ->notEmpty('Email')
             ->requirePresence('Email')
-            
             ->notEmpty('PhoneNo')
             ->requirePresence('PhoneNo');
         
-        return $validator;
+        return $checker;
     }
         public function isOwnedBy($ordersId, $userId)
          {
