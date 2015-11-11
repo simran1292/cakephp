@@ -1,12 +1,12 @@
 <?php
 namespace App\Controller;
 
-class PizzaController extends AppController{
+class OrdersController extends AppController{
 
     public function index()
     {
-        $articles = $this->Articles->find('all');
-        $this->set(compact('articles'));
+        $orders = $this->Orders->find('all');
+        $this->set(compact('orders'));
     }
      public function initialize()
     {
