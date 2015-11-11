@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+
 use App\Controller\AppController;
 use Cake\Event\Event;
 
@@ -9,24 +10,26 @@ class UsersController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow(['add','logout']);
+        // Allow users to register and logout.
+        // You should not add the "login" action to allow list. Doing so would
+        // cause problems with normal functioning of AuthComponent.
+        $this->Auth->allow(['add', 'logout']);
     }
     public function login()
-    {
-        if ($this->request->is('post')) 
         {
+            if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
+            $this->Auth->setUser($user);
+            return $this->redirect($this->Auth->redirectUrl());
             }
-        $this->Flash->error(__('Invalid username or password, try again'));
-        }
-    }   
+            $this->Flash->error(__('Invalid username or password, try again'));
+            }
+        }  
     public function logout()
-    {
-        return $this->redirect($this->Auth->logout());
-    }
+        {
+            return $this->redirect($this->Auth->logout());
+        }
 
      public function index()
      {
@@ -39,7 +42,7 @@ class UsersController extends AppController
         $this->set(compact('user'));
     }
 
-    public function add()
+     public function add()
     {
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
@@ -51,6 +54,23 @@ class UsersController extends AppController
             $this->Flash->error(__('Unable to add the user.'));
         }
         $this->set('user', $user);
+    }
+    public function isAuthorized($user)
+    {
+    // All registered users can add articles
+    if ($this->request->action === 'add') {
+        return true;
+    }
+
+    // The owner of an article can edit and delete it
+    if (in_array($this->request->action, ['edit', 'delete'])) {
+        $articleId = (int)$this->request->params['pass'][0];
+        if ($this->Articles->isOwnedBy($articleId, $user['id'])) {
+            return true;
+        }
+    }
+
+    return parent::isAuthorized($user);
     }
 
 }
